@@ -1,0 +1,79 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+local_backend: true
+
+collections:
+  - name: "packages"
+    label: "Packages"
+    file: "data/packages.json"
+    format: "json"
+    fields:
+      - label: "Items"
+        name: "root"
+        widget: "list"
+        fields:
+          - {label: "ID", name: "id", widget: "string"}
+          - {label: "Title Key", name: "title_key", widget: "string"}
+          - {label: "Desc Key", name: "desc_key", widget: "string"}
+          - {label: "Price", name: "price", widget: "string"}
+          - {label: "Features", name: "features", widget: "list"}
+
+  - name: "clients"
+    label: "Clients"
+    file: "data/clients.json"
+    format: "json"
+    fields:
+      - label: "Clients"
+        name: "root"
+        widget: "list"
+        fields:
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Logo", name: "logo", widget: "image"}
+          - {label: "Website", name: "site", widget: "string", required: false}
+
+  - name: "videos"
+    label: "Videos"
+    file: "data/videos.json"
+    format: "json"
+    fields:
+      - label: "Videos"
+        name: "root"
+        widget: "list"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Embed URL", name: "embed", widget: "string"}
+
+  - name: "stats"
+    label: "Stats"
+    file: "data/stats.json"
+    format: "json"
+    fields:
+      - {label: "Videos Produced", name: "videos_produced", widget: "number"}
+      - {label: "Total Views (Millions)", name: "total_views_millions", widget: "number", value_type: "float", step: 0.1}
+      - {label: "Active Clients", name: "active_clients", widget: "number"}
+
+  - name: "i18n_en"
+    label: "Translations (EN)"
+    file: "i18n/en.json"
+    format: "json"
+    fields:
+      - {label: "JSON", name: "root", widget: "text"}
+
+  - name: "i18n_tr"
+    label: "Translations (TR)"
+    file: "i18n/tr.json"
+    format: "json"
+    fields:
+      - {label: "JSON", name: "root", widget: "text"}
+
+  - name: "i18n_da"
+    label: "Translations (DA)"
+    file: "i18n/da.json"
+    format: "json"
+    fields:
+      - {label: "JSON", name: "root", widget: "text"}
